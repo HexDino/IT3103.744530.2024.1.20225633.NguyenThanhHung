@@ -6,5 +6,5 @@ public class HelloNameDialog {
         result_NTH = JOptionPane.showInputDialog("Please enter your name:");
         JOptionPane.showMessageDialog(null, "Hi " + result_NTH + "! How are you?");
         System.exit(0);
-    }
+    } 
 }

@@ -1,6 +1,6 @@
 //Nguyen Thanh Hung - 20225633
 import javax.swing.JOptionPane;
-public class Caculator {
+public class Caculator { 
     public static void main(String[] args){
         String strNum1_NTH, strNum2_NTH;
         strNum1_NTH = JOptionPane.showInputDialog(null, "Please input the first number:","Input the first number", JOptionPane.INFORMATION_MESSAGE);

@@ -13,7 +13,7 @@ public class Equations {
             this.x1 = x1;
             this.x2 = x2;
         }
-    }
+    } 
 
     static TwoDegreeEquationResult two_degree_equation(Double a_NTH, Double b_NTH, Double c_NTH) {
         if (a_NTH == 0) {
