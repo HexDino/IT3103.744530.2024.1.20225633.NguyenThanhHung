@@ -93,77 +93,22 @@ public class Aims_NTH {
     public static void main(String[] args) {
         Aims_NTH aims = new Aims_NTH();
 
-        // Thêm một số DVD vào kho
-        System.out.println("\n--- Adding DVDs to Store ---");
+     // Tạo DVD
         DigitalVideoDisc_NTH dvd1 = new DigitalVideoDisc_NTH("The Matrix", "Sci-Fi", "Wachowskis", 120, 19.99f);
         DigitalVideoDisc_NTH dvd2 = new DigitalVideoDisc_NTH("Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
         DigitalVideoDisc_NTH dvd3 = new DigitalVideoDisc_NTH("Interstellar", "Sci-Fi", "Christopher Nolan", 169, 29.99f);
         DigitalVideoDisc_NTH dvd4 = new DigitalVideoDisc_NTH("Finding Nemo", "Animation", "Andrew Stanton", 100, 15.99f);
 
-        aims.mg_addDVDtoStore_NTH(dvd1);
-        aims.mg_addDVDtoStore_NTH(dvd2);
-        aims.mg_addDVDtoStore_NTH(dvd3);
-        aims.mg_addDVDtoStore_NTH(dvd4);
+        // Sử dụng phương thức nạp chồng
+        System.out.println("\n--- Thêm DVD bằng mảng ---");
+        aims.cart.addDigitalVideoDisc1(new DigitalVideoDisc_NTH[]{dvd1, dvd2});
 
-        // Hiển thị DVDs trong kho
-        aims.showDVDInStock_NTH();
-
-        // Tìm kiếm DVD theo tiêu đề
-        aims.searchByTitle_NTH("Inception");
-
-        // Tìm kiếm DVD theo thể loại
-        aims.searchByCategory_NTH("Sci-Fi");
-
-        // Tìm kiếm DVD theo giá
-        aims.searchByPrice_NTH(20.00f);
-
-        // Thêm DVD vào giỏ hàng
-        System.out.println("\n--- Adding DVDs to Cart ---");
-        aims.cart.addDigitalVideoDisc_NTH(dvd1);
-        aims.cart.addDigitalVideoDisc_NTH(dvd2);
-
-        // Hiển thị giỏ hàng
-        System.out.println("\n--- Showing Cart ---");
-        aims.mg_showPendingCart_NTH();
-
-        // Sắp xếp giỏ hàng theo giá và hiển thị lại
-        System.out.println("\n--- Sorting Cart by Cost ---");
-        aims.cart.sortCartByCost_NTH();
-        aims.mg_showPendingCart_NTH();
-
-        // Sắp xếp giỏ hàng theo tiêu đề và hiển thị lại
-        System.out.println("\n--- Sorting Cart by Title ---");
-        aims.cart.sortCartByTitle_NTH();
-        aims.mg_showPendingCart_NTH();
-
-        // Tặng ngẫu nhiên một DVD miễn phí
-        System.out.println("\n--- Giving a Random Free DVD ---");
-        aims.cart.randomDVD_NTH();
-
-        // Đặt hàng và hiển thị trạng thái
-        System.out.println("\n--- Placing Order ---");
-        aims.cart.setDeliDest("123 Main St, City, Country");
-        aims.cart.setDeliFee(5.99f);
-        aims.cart.setVat(10.0f);
-        aims.cart.placeOrder_NTH();
-
-        // Hiển thị lại giỏ hàng sau khi đặt hàng
-        System.out.println("\n--- Showing Cart After Order ---");
-        aims.mg_showPendingCart_NTH();
-
-        // Xóa DVD khỏi kho
-        System.out.println("\n--- Removing DVDs from Store ---");
-        aims.mg_removeDVDfromStore_NTH(dvd1);
-        aims.showDVDInStock_NTH();
+        System.out.println("\n--- Thêm DVD bằng varargs ---");
+        aims.cart.addDigitalVideoDisc2(dvd3, dvd4);
         
-        // Xem danh sách các đơn hàng đang chờ xử lý
-        aims.viewListOfPendingOrders_NTH();
-
-        // Xem chi tiết đơn hàng đầu tiên
-        aims.viewOrderDetail_NTH(1);
-
-        // Phê duyệt đơn hàng
-        aims.cart.approveOrder_NTH();
-        aims.viewOrderDetail_NTH(1);
+        System.out.println("\n--- Thêm DVD bằng phương thức 2 tham số ---");
+        aims.cart.addDigitalVideoDisc(dvd1, dvd3);
+        
+        
     }
 }

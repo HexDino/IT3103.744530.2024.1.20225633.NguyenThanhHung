@@ -143,4 +143,93 @@ public class Cart_NTH {
             System.out.println("\nOrder is not in a state that can be rejected.");
         }
     }
+    //Phương thức nhận tham số là mảng DVD
+    public void addDigitalVideoDisc1(DigitalVideoDisc_NTH[] dvdList) {
+        for (DigitalVideoDisc_NTH disc : dvdList) {
+            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+                itemsOrdered.add(disc);
+                qtyOrdered++;
+                System.out.println("The disc \"" + disc.getTitle() + "\" has been added to the cart.");
+            } else {
+                System.out.println("The cart is full. Cannot add more discs.");
+                break;
+            }
+        }
+    }
+    //Phương thức nhận tham số là danh sách số lượng tùy ý (varargs)
+    public void addDigitalVideoDisc2(DigitalVideoDisc_NTH... discs) {
+        for (DigitalVideoDisc_NTH disc : discs) {
+            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+                itemsOrdered.add(disc);
+                qtyOrdered++;
+                System.out.println("The disc \"" + disc.getTitle() + "\" has been added to the cart.");
+            } else {
+                System.out.println("The cart is full. Cannot add more discs.");
+                break;
+            }
+        }
+    }
+    //Nạp chồng phương thức với số lượng tham số khác nhau
+    public void addDigitalVideoDisc(DigitalVideoDisc_NTH dvd1, DigitalVideoDisc_NTH dvd2) {
+        if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+            itemsOrdered.add(dvd1);
+            qtyOrdered++;
+            System.out.println("The disc \"" + dvd1.getTitle() + "\" has been added to the cart.");
+        } else {
+            System.out.println("The cart is full. Cannot add \"" + dvd1.getTitle() + "\".");
+        }
+
+        if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+            itemsOrdered.add(dvd2);
+            qtyOrdered++;
+            System.out.println("The disc \"" + dvd2.getTitle() + "\" has been added to the cart.");
+        } else {
+            System.out.println("The cart is full. Cannot add \"" + dvd2.getTitle() + "\".");
+        }
+    }
+    
+    public void print() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+        float totalCost = 0;
+        int index = 1;
+        for (DigitalVideoDisc_NTH disc : itemsOrdered) {
+            System.out.println(index++ + ". " + disc.toString());
+            totalCost += disc.getCost();
+        }
+        System.out.println("Total cost: " + totalCost + " $");
+        System.out.println("***************************************************");
+    }
+    
+    public void searchById(int id) {
+        boolean found = false;
+        for (DigitalVideoDisc_NTH disc : itemsOrdered) {
+            if (disc.getId() == id) {
+                System.out.println("Found DVD with ID " + id + ":");
+                System.out.println(disc.toString());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("No DVD found with ID " + id);
+        }
+    }
+    
+    public void searchByTitle(String title) {
+        boolean found = false;
+        for (DigitalVideoDisc_NTH disc : itemsOrdered) {
+            if (disc.isMatch(title)) {
+                System.out.println("Found DVD with title \"" + title + "\":");
+                System.out.println(disc.toString());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No DVD found with title \"" + title + "\"");
+        }
+    }
+
+
+
 }
